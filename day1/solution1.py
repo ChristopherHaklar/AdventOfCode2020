@@ -1,6 +1,6 @@
 def solution1(fileName):
   input = []
-  file = open("input.txt", "r")
+  file = open(fileName, "r")
   for x in file:
     input.append(int(x))
   file.close()
