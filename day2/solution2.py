@@ -11,19 +11,12 @@ def solution2(fileName):
 
   for tupleInput in input:
     min, max, testLetter, passwordString = tupleInput
-    testLetterCount = 0
-    for i in passwordString:
-      if i == testLetter:
-        testLetterCount += 1
-    if testLetterCount <= int(max) and testLetterCount >= int(min):
-        if len(passwordString) >= int(max):
-          if not((passwordString[int(min)] == testLetter) and (passwordString[int(max)] == testLetter)):
-              validPasswordCount += 1
-              print(passwordString)
-        else:
-          if (passwordString[int(min)] == testLetter):
-              validPasswordCount +=1
-              print(passwordString)
+    if len(passwordString) >= int(max):
+      if bool((passwordString[int(min)-1] == testLetter)) != bool((passwordString[int(max)-1] == testLetter)):
+          validPasswordCount += 1
+    else:
+      if (passwordString[int(min)-1] == testLetter):
+          validPasswordCount +=1
 
   return validPasswordCount
 
